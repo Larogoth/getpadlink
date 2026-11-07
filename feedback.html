@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Send feedback · PadLink</title>
+<meta name="description" content="Tell us what was confusing, what didn't work, or what you'd love PadLink to do. Every bit of feedback helps.">
+<meta property="og:title" content="Send feedback · PadLink">
+<meta property="og:site_name" content="PadLink">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://getpadlink.com/img/share.png">
+<meta property="og:url" content="https://getpadlink.com/feedback.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .fb-go { margin: 8px 0 22px; }
+  .fb-go .btn { min-width: 260px; }
+  .fb-note { color: var(--muted); font-size: 16px; }
+  #fbWaiting[hidden], #fbReady[hidden] { display: none; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="./"><img src="img/padlink-logo.png" alt="PadLink"></a>
+    <nav>
+      <a class="wide" href="guide/">Guide</a>
+      <a class="wide" href="testing.html">Testing PadLink</a>
+      <a class="btn primary small" href="./#get">Get PadLink</a>
+    </nav>
+  </div>
+</header>
+
+<main class="guide">
+  <h1>Send feedback</h1>
+  <p class="intro">Something confusing, something that didn't work, or an idea? Tell us. There are no wrong answers: if you had to hunt for something, that's exactly what we want to hear.</p>
+
+  <div id="fbReady" hidden>
+    <div class="fb-go"><a class="btn primary" id="fbOpen" href="#">Open the feedback form</a></div>
+    <p class="fb-note">It's a short Google Form: what you were trying to do, what happened, and a screenshot if you have one. One thing per form is best, and you can send as many as you like.</p>
+  </div>
+  <div id="fbWaiting" class="tip" hidden>
+    The feedback form is almost ready. For now, tell us on <a href="https://github.com/Larogoth/PadLink-releases/issues">PadLink's contact page</a>, or tell the person who asked you to try PadLink.
+  </div>
+
+  <section>
+    <h2>What helps the most</h2>
+    <ul>
+      <li><b>What you were trying to do</b>, in your own words: "put a worksheet on the board", "let my phone join as a student".</li>
+      <li><b>Where you got stuck</b> or what surprised you. Even small things, like a button you couldn't find.</li>
+      <li><b>A screenshot</b> if you can. Windows: <b>Windows key + Shift + S</b>. iPad or iPhone: the <b>top (or side) button + volume up</b>.</li>
+    </ul>
+    <p>Trying PadLink for the first time? The <a href="testing.html">Testing PadLink</a> page walks you through it.</p>
+    <p class="fb-note">The form is a Google Form: what you type and any screenshot go to PadLink's developer and are only used to make PadLink better. See the <a href="https://larogoth.github.io/PadLink-releases/privacy.html#feedback">privacy policy</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 PadLink</div>
+    <nav>
+      <a href="./">Home</a>
+      <a href="guide/">Guide</a>
+      <a href="testing.html">Testing PadLink</a>
+      <a href="https://larogoth.github.io/PadLink-releases/privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// The feedback form (a Google Form) and its pre-filled answers. PadLink's Send feedback buttons open this page
+// (the PC's Settings adds ?v=<version>); this page works out the device itself and fills both in on the form.
+// Set FORM and the two entry ids from the form's "Get pre-filled link" (entry.123456789=…).
+const FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSejjKW1LuCrQXaPBHHTY_kE5Y8s_egL-uYWHY5kOlf1xUhhkQ/viewform';
+const ENTRY_DEVICE = 'entry.2084012967';  // Where were you using PadLink?
+const ENTRY_VERSION = 'entry.974847994';  // PadLink version
+(() => {
+  const ua = navigator.userAgent;
+  const device = /iPhone|iPod/.test(ua) ? 'iPhone'
+    : /iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) ? 'iPad'
+    : /CrOS|Android/.test(ua) ? 'Student device (Chromebook, laptop or phone)'
+    : /Windows/.test(ua) ? 'PC (the PadLink window or whiteboard)' : '';
+  const version = (new URLSearchParams(location.search).get('v') || '').replace(/[^0-9A-Za-z.\-]/g, '').slice(0, 24);
+  if (!FORM) { document.getElementById('fbWaiting').hidden = false; return; }
+  const q = new URLSearchParams({ usp: 'pp_url' });
+  if (ENTRY_DEVICE && device) q.set(ENTRY_DEVICE, device);
+  if (ENTRY_VERSION && version) q.set(ENTRY_VERSION, version);
+  document.getElementById('fbOpen').href = FORM + '?' + q.toString();
+  document.getElementById('fbReady').hidden = false;
+})();
+</script>
+</body>
+</html>
