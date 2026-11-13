@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PadLink for schools and IT</title>
+<meta name="description" content="How PadLink handles student privacy and school networks, and what to allow in web filters.">
+<meta property="og:title" content="PadLink for schools and IT">
+<meta property="og:site_name" content="PadLink">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://getpadlink.com/img/share.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PadLink: your classroom tools, together in one free app. An iPad and the classroom whiteboard showing the same Moon phases lesson">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:description" content="How PadLink handles student privacy and school networks, and what to allow in web filters.">
+<meta property="og:url" content="https://getpadlink.com/schools.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="./"><img src="img/padlink-logo.png" alt="PadLink"></a>
+    <nav><a class="wide" href="guide/">Guide</a> <a class="btn primary small" href="./#get">Get PadLink</a></nav>
+  </div>
+</header>
+
+<main class="page">
+  <h1>For schools and IT</h1>
+  <p>PadLink runs on the teacher's own PC. There's no PadLink server, no account with us, and no analytics or tracking.</p>
+
+  <h2>Student privacy</h2>
+  <ul>
+    <li>Students don't create accounts. They join with the lesson's code and pick their name from the teacher's class list.</li>
+    <li>Student boards, raised hands and poll answers are kept only in the PC's memory during the lesson, and are deleted when the class closes.</li>
+    <li>Class lists hold names and, if the teacher chooses, a team and seat number. Nothing else.</li>
+    <li>Google Drive: PadLink only gets the files the teacher picks, and never changes or shares anything in their Drive.</li>
+  </ul>
+  <p><a href="https://larogoth.github.io/PadLink-releases/privacy.html">Read the full privacy policy</a></p>
+
+  <h2>School networks</h2>
+  <ul>
+    <li>On simple networks, the teacher's iPad and students' devices (Chromebooks, laptops or tablets, in any web browser) connect straight to the PC.</li>
+    <li>Where they can't, <strong>Remote mode</strong> connects them straight to the PC, peer to peer and encrypted end to end (WebRTC, as in video calls). PadLink's small signaling server only introduces the two sides; it can't read or join the connection, because each device checks the PC's own key from the pairing code. Where a network blocks direct connections, an encrypted relay is used (TURN, including over port 443), still unreadable in between. No account or sign-in is needed. Settings → Connecting on the PC shows which way each device connected right now (direct or through the relay).</li>
+    <li>PCs that used Remote mode before November 2026 keep Microsoft's Dev Tunnels relay until a teacher switches in Settings → Connecting. Dev Tunnels runs over port 443 and needs a sign-in with a GitHub or Microsoft account.</li>
+  </ul>
+
+  <h2>Addresses to allow in web filters</h2>
+  <p><b>Students' devices and the teacher's iPad</b></p>
+  <ul>
+    <li><code>padlink-signal.getpadlink.workers.dev</code>, <code>stun.cloudflare.com</code> and <code>turn.cloudflare.com</code> (UDP 3478, TCP 443): Remote mode</li>
+    <li><code>padlink-app.github.io</code>: students' join page when they join through Remote mode</li>
+    <li><code>*.devtunnels.ms</code>: Remote mode on PCs still set to Dev Tunnels</li>
+    <li><code>padlink-app.github.io</code>: PadLink Go</li>
+  </ul>
+  <p><b>The teacher's PC, for Remote mode</b> (outgoing connections only, port 443)</p>
+  <ul>
+    <li><code>*.devtunnels.ms</code> and <code>*.rel.tunnels.api.visualstudio.com</code> (including <code>global.rel.tunnels.api.visualstudio.com</code>): Microsoft Dev Tunnels</li>
+    <li><code>aka.ms</code> and <code>tunnelsassetsprod.blob.core.windows.net</code>: downloading Microsoft's Dev Tunnels tool, the first time</li>
+    <li><code>github.com</code>, <code>login.microsoftonline.com</code> and <code>microsoft.com</code>: signing in</li>
+  </ul>
+  <p><b>The teacher's PC, for updates</b></p>
+  <ul>
+    <li><code>github.com</code> and <code>release-assets.githubusercontent.com</code>: checking for and downloading updates</li>
+  </ul>
+  <p><b>Google Drive</b> (only if the teacher uses it)</p>
+  <ul>
+    <li><code>larogoth.github.io</code>: PadLink's page for Google's file picker</li>
+    <li>Google's own addresses: <code>accounts.google.com</code>, <code>apis.google.com</code>, <code>docs.google.com</code> and <code>www.googleapis.com</code>. In Google Workspace, IT may also need to allow PadLink in the Admin console.</li>
+  </ul>
+  <p class="note">Microsoft keeps its own list for Dev Tunnels in <a href="https://learn.microsoft.com/azure/developer/dev-tunnels/security">Dev tunnels security</a>.</p>
+
+  <h2>Updates</h2>
+  <p>PadLink checks for updates by itself, and every update is checked against PadLink's own signature before it installs.</p>
+
+  <h2>Questions?</h2>
+  <p><a href="https://github.com/Larogoth/PadLink-releases/issues">Ask here</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 PadLink</div>
+    <nav>
+      <a href="./">Home</a>
+      <a href="https://larogoth.github.io/PadLink-releases/privacy.html">Privacy</a>
+      <a href="feedback.html">Contact &amp; feedback</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

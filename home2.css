@@ -1,0 +1,62 @@
+/* The homepage's new design: the site's own tokens (style.css), with clips of PadLink at work.
+   Layout: the hero splits words | the whiteboard clip (an iPad beside it); then one feature per row, clip and words
+   alternating sides; everything after "How it works" is the current homepage's. */
+
+/* hero: the thesis is the whiteboard itself, written on */
+.hero2 { padding: 64px 0 88px; background: linear-gradient(165deg, #F0FAE8 0%, #E9F4FF 60%, #fff 100%); }
+.hero2-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 56px; align-items: center; }
+.hero2-text { min-width: 0; }
+.hero2 h1 { font-size: clamp(34px, 4.6vw, 54px); text-wrap: balance; }
+.hero2 h1 span { background: linear-gradient(90deg, var(--green), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero2 p { font-size: 20px; color: var(--muted); margin: 18px 0 28px; max-width: 34em; }
+.hero2 .facts { margin-top: 18px; font-size: 15px; color: var(--muted); }
+.hero2 .facts b { color: var(--navy); }
+.hero2 .hint { font-size: 15px; color: var(--muted); margin-top: 12px; }
+.hero2 .phone-only { display: none; }
+.is-device .hero2 .pc-only { display: none; }
+.is-device .hero2 .phone-only { display: block; }
+
+.stage { margin: 0; min-width: 0; }
+/* one picture: the PC screen with the iPad in front of it, their shadows drawn in (so they always move together) */
+.stage-clip, .feature-clip img { display: block; width: 100%; max-width: 100%; height: auto; }
+.stage figcaption { margin-top: 6px; text-align: right; font-size: 15px; color: var(--muted); }
+
+/* see it work: one feature per row */
+.see h2 { margin-bottom: 10px; }
+.see-lead { text-align: center; color: var(--muted); max-width: 36em; margin: 0 auto 64px; }
+.feature { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 56px; align-items: center; }
+.feature + .feature { margin-top: 96px; }
+.feature.flip { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+.feature.flip .feature-text { order: 2; }
+.feature-text { min-width: 0; }
+.feature-clip { min-width: 0; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px rgba(14, 42, 74, .08), 0 24px 48px -20px rgba(14, 42, 74, .32); }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: Poppins, system-ui, sans-serif; font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-dark); }
+.eyebrow .new { padding: 2px 9px; border-radius: 999px; background: var(--green); color: #fff; font-size: 11px; letter-spacing: .06em; }
+.feature h3 { font-size: clamp(24px, 2.8vw, 32px); margin: 10px 0 14px; text-wrap: balance; }
+.feature p { color: var(--muted); margin: 0 0 18px; }
+.ticks { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 10px; font-size: 16px; }
+.ticks li { position: relative; padding-left: 32px; }
+.ticks li::before { content: '✓'; position: absolute; left: 0; top: 2px; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: #E6F6DA; color: #3E8E12; font-size: 13px; font-weight: 700; }
+.more { font-weight: 600; text-decoration: none; white-space: nowrap; }
+.more:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .hero2 { padding: 40px 0 72px; text-align: center; }
+  .hero2-grid, .feature, .feature.flip { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .hero2 p { margin-left: auto; margin-right: auto; }
+  .stage { max-width: 640px; margin: 8px auto 0; width: 100%; }
+  .stage figcaption { text-align: center; }
+  .feature.flip .feature-text { order: 0; }
+  .feature + .feature { margin-top: 64px; }
+  .see-lead { margin-bottom: 40px; }
+}
+@media (max-width: 640px) {
+  .hero2 .pc-only { display: none; }
+  .hero2 .phone-only { display: block; }
+  .hero2 .btn { width: 100%; max-width: 340px; }
+  .hero2 p { font-size: 18px; }
+}
+
+/* Bands down the homepage: white and soft blue in turn; the hero and the PadLink Go band are the only colored ones,
+   and the Go band fades in and out of the white around it instead of starting with a hard edge. */
+.go-band { background: linear-gradient(#fff, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0) 78%, #fff), linear-gradient(160deg, #E8FBF4 0%, #EAF5FF 70%); }

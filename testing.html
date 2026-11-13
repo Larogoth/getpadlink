@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testing PadLink</title>
+<meta name="description" content="Thanks for trying PadLink! How to set it up at home, ten things to try, and how to tell us what was confusing.">
+<meta property="og:title" content="Testing PadLink">
+<meta property="og:site_name" content="PadLink">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://getpadlink.com/img/share.png?v=3">
+<meta property="og:description" content="Thanks for trying PadLink! How to set it up at home, ten things to try, and how to tell us what was confusing.">
+<meta property="og:url" content="https://getpadlink.com/testing.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .tries { counter-reset: t; list-style: none; padding: 0; }
+  .tries li { counter-increment: t; position: relative; padding: 12px 14px 12px 52px; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 10px; background: #fff; }
+  .tries li::before { content: counter(t); position: absolute; left: 14px; top: 12px; width: 26px; height: 26px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: 15px; }
+  .tries .notice { display: block; color: var(--muted); font-size: 16px; margin-top: 4px; }
+  .tries .dev { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 6px; background: #eef2f8; color: #3d4a63; font-size: 13px; font-weight: 700; white-space: nowrap; vertical-align: 2px; }
+  .tries .box { position: absolute; right: 14px; top: 13px; width: 20px; height: 20px; border: 2px solid #9aa6b8; border-radius: 4px; display: none; }
+  .print-btn { margin: 4px 0 0; }
+  @media print {
+    header.top, footer, .print-btn, figure.shot, .no-print { display: none !important; }
+    .guide { padding: 0; }
+    .guide section { padding: 14px 0 4px; }
+    .tries li { padding-right: 46px; }
+    .tries .box { display: block; }
+    .tries .dev { border: 1px solid #9aa6b8; background: none; }
+    a { color: inherit; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="./"><img src="img/padlink-logo.png" alt="PadLink"></a>
+    <nav>
+      <a class="wide" href="guide/">Guide</a>
+      <a class="wide" href="feedback.html">Send feedback</a>
+      <a class="btn primary small" href="./#get">Get PadLink</a>
+    </nav>
+  </div>
+</header>
+
+<main class="guide">
+  <h1>Testing PadLink</h1>
+  <p class="intro">Thank you for trying PadLink! It's a free app for teachers: an iPad or iPhone becomes a remote for the classroom whiteboard, and students join from Chromebooks, laptops or tablets to write, draw and answer polls.</p>
+
+  <div class="tip"><b>The most useful thing you can do is be honest about what was confusing.</b> You don't need to know anything about testing apps, and you can't break anything. If you had to hunt for a button, guessed wrong, or gave up, that's the best feedback there is. Please tell us right away, while you still remember it.</div>
+
+  <nav class="toc no-print" aria-label="On this page">
+    <a href="#need">1. What you need</a>
+    <a href="#setup">2. Set up (about 10 minutes)</a>
+    <a href="#try">3. Ten things to try</a>
+    <a href="#feedback">4. Tell us how it went</a>
+  </nav>
+  <p class="print-btn no-print"><button class="btn primary small" onclick="print()">🖨 Print the checklist</button></p>
+
+  <section id="need">
+    <h2>1. What you need</h2>
+    <ul>
+      <li><b>A Windows PC or laptop.</b> At school it's the one connected to the board; at home any laptop is fine.</li>
+      <li><b>An iPad or iPhone</b> (best), to control the whiteboard and plan lessons.</li>
+      <li><b>Optional: a "pretend student".</b> Any other phone, tablet or laptop with a web browser can join as a student. No real class needed!</li>
+    </ul>
+  </section>
+
+  <section id="setup">
+    <h2>2. Set up (about 10 minutes)</h2>
+    <p><b>Step 1. Get PadLink on the PC.</b> On the PC, go to <a href="./#get">getpadlink.com</a> and click <b>Download for Windows</b>. Open your Downloads folder, right-click <b>PadLink.zip</b> → <b>Extract All</b>, then open the new <b>PadLink</b> folder and double-click <b>PadLink</b>. Nothing to install. You'll see this window:</p>
+    <figure class="shot"><img src="img/guide/pc-window-plain.png" alt="The PadLink window on the PC, with a QR code and a pairing code" loading="lazy"></figure>
+    <div class="tip">Windows may say it protected your PC. Click <b>More info</b> → <b>Run anyway</b>. PadLink is new, so Windows doesn't know it yet.</div>
+
+    <p><b>Step 2. Connect your iPad or iPhone.</b> Open the <b>Camera</b> app and point it at the QR code on the PC. Tap the link that pops up. A number appears on the iPad and on the PC: click <b>Allow</b> on the PC.</p>
+    <figure class="shot"><img src="img/guide/ipad-allow.png" alt="The iPad showing Allow on the PC with a 4-digit number" loading="lazy"></figure>
+    <div class="tip">Not connecting? Both need to be on the <b>same Wi-Fi</b>. On school Wi-Fi, turn on <b>Remote mode</b> in the PadLink window first.</div>
+
+    <p><b>Step 3. Open the whiteboard.</b> Click <b>Open whiteboard</b> in the PadLink window, or tap <b>Whiteboard</b> on the iPad.</p>
+    <figure class="shot"><img src="img/guide/whiteboard.png" alt="The PadLink whiteboard with a Moon phases lesson" loading="lazy"></figure>
+
+    <p><b>Step 4 (optional). Add a pretend student.</b> On the PC, open <b>Class tools</b> → <b>Names</b> and type a few names (yours is fine). Then <b>Class tools</b> → <b>Students</b> → <b>Open the class</b>. A join code fills the board: on your other phone or laptop, scan it (or type the address and code), tap a name, and click <b>Let in</b> on the PC.</p>
+    <figure class="shot"><img src="img/guide/join-code.png" alt="The join code shown over the whiteboard" loading="lazy"></figure>
+  </section>
+
+  <section id="try">
+    <h2>3. Ten things to try</h2>
+    <p>Try them in any order. The gray tag says which devices each one needs: skip any you don't have. Don't look anything up first: we want to know if you can figure it out. Each one has a small question to notice.</p>
+    <ol class="tries">
+      <li><span class="box"></span><b>Draw on the whiteboard from your iPad or iPhone</b>, then undo it. <span class="dev">PC + iPad/iPhone</span><span class="notice">Was it easy to find the pen and undo?</span></li>
+      <li><span class="box"></span><b>Add a new page</b>, write on it, then go back to the first page. <span class="dev">PC</span><span class="notice">Did you know where you were?</span></li>
+      <li><span class="box"></span><b>Put a picture or PDF on the board</b> (from the iPad's <b>Add</b> or the PC's <b>Import</b>). <span class="dev">PC + iPad/iPhone</span><span class="notice">Did the pages come out the way you expected?</span></li>
+      <li><span class="box"></span><b>Write some text and a shape</b>, then move one of them. <span class="dev">PC</span><span class="notice">Anything fiddly?</span></li>
+      <li><span class="box"></span><b>Start a 1-minute timer</b> and <b>spin the name picker</b> (<b>Class tools</b>). <span class="dev">PC</span><span class="notice">Would this work in front of a class?</span></li>
+      <li><span class="box"></span><b>Have your pretend student draw</b> on their own board, and look at it from the PC (<b>See their boards</b>). <span class="dev">PC + student device</span><span class="notice">Was joining easy on the student's device?</span></li>
+      <li><span class="box"></span><b>Run a quick A–D poll</b> (<b>Class tools</b> → <b>Poll</b>) and answer it as the student. <span class="dev">PC + student device</span><span class="notice">Was it clear when the poll was open and closed?</span></li>
+      <li><span class="box"></span><b>Try a Draw poll</b>: the student draws their answer, then show it on the board. <span class="dev">PC + student device</span><span class="notice">Was the drawing pad easy to use?</span></li>
+      <li><span class="box"></span><b>Press Eyes up</b> to pause the student's screen, then lift it. <span class="dev">PC + student device</span><span class="notice">Did the student understand what happened?</span></li>
+      <li><span class="box"></span><b>Plan a board on the iPad or iPhone without the PC</b>: add <b>PadLink Go</b> to your Home Screen (getpadlink.com → PadLink Go), make a board, then <b>Send to PC</b>. <span class="dev">iPad/iPhone only</span><span class="notice">Did you find your board on the PC afterwards?</span></li>
+    </ol>
+    <p class="no-print">Stuck? That's useful to know too. Write down where, then peek at the <a href="guide/">guide</a> and keep going.</p>
+  </section>
+
+  <section id="feedback">
+    <h2>4. Tell us how it went</h2>
+    <p>Send feedback as you go, one thing at a time, while it's fresh. Short is fine.</p>
+    <ul>
+      <li><b>In PadLink:</b> the <b>?</b> help button on the whiteboard → <b>Send feedback</b>, or on the PC: <b>Settings</b> → <b>General</b> → <b>Send feedback</b>.</li>
+      <li><b>Or here:</b> <a href="feedback.html">getpadlink.com/feedback.html</a></li>
+    </ul>
+    <p>It opens a short form: what you were trying to do, what happened, how easy it was, and a screenshot if you have one (Windows: <b>Windows key + Shift + S</b>; iPad or iPhone: <b>top or side button + volume up</b>).</p>
+    <p>Printed the checklist? You're also welcome to send a photo of it with your notes.</p>
+    <div class="tip no-print">What you send in the form goes to PadLink's developer and is only used to make PadLink better. Details are in the <a href="https://larogoth.github.io/PadLink-releases/privacy.html#feedback">privacy policy</a>.</div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 PadLink</div>
+    <nav>
+      <a href="./">Home</a>
+      <a href="guide/">Guide</a>
+      <a href="feedback.html">Contact &amp; feedback</a>
+      <a href="https://larogoth.github.io/PadLink-releases/privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
